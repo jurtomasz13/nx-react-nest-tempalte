@@ -1,13 +1,16 @@
 {
-  "name": "@./source",
+  "name": "nx-react-nest-template",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "prepare": "husky",
     "postinstall": "npm run prepare",
-    "format": "npx prettier --write apps/**/*.{ts,tsx,js,jsx,json,css,scss,md}"
+    "format:root": "npx prettier --config .prettierrc --write apps/**/*.{ts,tsx,js,jsx,json,css,scss,md}",
+    "format": "npm run format:root && npx nx run-many --all --target=format",
+    "lint": "npx nx run-many --all --target=lint",
+    "test": "npx nx run-many --all --target=test",
+    "build": "npx nx run-many --all --target=build"
   },
-  "nx": {},
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",

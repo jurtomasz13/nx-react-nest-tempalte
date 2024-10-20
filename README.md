@@ -1,81 +1,141 @@
-#
+# Nx React Nest Template
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+This repository provides a robust template for building applications using **Nx**, **React**, and **NestJS**. It includes pre-configured tools for linting, formatting, and managing your monorepo efficiently. The template is designed for rapid development and includes essential setup for modern web applications.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## Table of Contents
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Folder Structure](#folder-structure)
+- [Custom Targets](#custom-targets)
+  - [Format Target](#format-target)
+- [Scripts](#scripts)
+- [Linting and Formatting](#linting-and-formatting)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Finish your CI setup
+## Features
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/EjrrEwfr6W)
+- **Nx Monorepo**: Leverage the power of Nx to manage multiple projects within a single repository.
+- **React Application**: Easily create scalable React applications with best practices.
+- **NestJS Backend**: Build efficient and scalable server-side applications using NestJS.
+- **Husky and lint-staged**: Automatically format code and enforce linting rules before committing changes.
+- **Custom Nx Targets**: Define custom targets for easy management of scripts and commands.
 
-## Run tasks
+## Getting Started
 
-To run the dev server for your app, use:
+To get started with this template, follow these steps:
 
-```sh
-npx nx serve react
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/nx-react-nest-template.git
+   ```
+
+2. **Navigate into the project directory**:
+   ```bash
+   cd nx-react-nest-template
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+4. **Run the development server**:
+
+   For the React application:
+   ```bash
+   nx serve react
+   ```
+
+   For the NestJS application:
+   ```bash
+   nx serve backend
+   ```
+
+## Folder Structure
+
+The repository follows a structured folder layout:
+
+```
+nx-react-nest-template/
+├── apps/
+│   ├── frontend/
+│   ├── backend/
+│   └── backend-e2e/
+├── libs/
+│   └── shared/
+├── .husky/
+├── .prettierrc
+├── nx.json
+├── package.json
+└── workspace.json
 ```
 
-To create a production bundle:
+- `apps/`: Contains the individual applications (React and Nest).
+- `libs/`: Holds shared libraries that can be used across multiple apps.
+- `.husky/`: Configuration for Husky Git hooks.
+- `.prettierrc`: Prettier configuration for code formatting.
+- `nx.json`: Nx workspace configuration.
+- `package.json`: Project dependencies and scripts.
+- `workspace.json`: Configuration for all projects and libraries in the workspace.
 
-```sh
-npx nx build react
+## Custom Targets
+
+Nx allows you to define custom targets that streamline your development workflow. In this template, a custom target named `format` has been added.
+
+### Format Target
+
+The `format` target is used to run Prettier and format your codebase automatically. You can execute this target to ensure your code adheres to your defined style guidelines.
+
+To run the format target, use the following command:
+
+```bash
+nx run <project-name>:format
 ```
 
-To see all available targets to run for a project, run:
+Replace `<project-name>` with the name of the project you want to format (e.g., `frontend` or `backend`).
 
-```sh
-npx nx show project react
+**Example Usage:**
+
+To format the React application, run:
+```bash
+nx run frontend:format
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
+To format the NestJS application, run:
+```bash
+nx run backend:format
 ```
 
-To generate a new library, use:
-
-```sh
-npx nx g @nx/react:lib mylib
+To format both applications, run:
+```bash
+npm run format
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## Scripts
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+This template includes various npm scripts to aid development:
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- `npm run format`: Formats the entire codebase using Prettier.
+- `npm run lint`: Lints the entire codebase using ESLint.
+- `npm run test`: Runs tests for all applications.
+- `npm run build`: Builds all applications.
 
-## Install Nx Console
+## Linting and Formatting
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+This repository integrates ESLint and Prettier for maintaining code quality and consistent formatting across the project.
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- **Husky**: Automatically runs linting and formatting checks before commits.
+- **lint-staged**: Ensures that only staged files are checked and formatted during a commit.
 
-## Useful links
+**Configuration:**
+Prettier configuration can be found in the root `.prettierrc` file, while individual project configurations can be defined within their respective directories.
 
-Learn more:
+## Contributing
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Contributions are welcome! If you have suggestions for improvements or find any issues, please open an issue or submit a pull request.
 
-And join the Nx community:
+## License
 
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
