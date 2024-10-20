@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "husky",
     "postinstall": "npm run prepare",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write apps/**/*.{ts,tsx,js,jsx,json,css,scss,md}"
   },
   "nx": {},
   "private": true,
