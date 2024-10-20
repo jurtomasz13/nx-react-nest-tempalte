@@ -1,7 +1,7 @@
 {
-  "name": "nest",
+  "name": "backend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/nest/src",
+  "sourceRoot": "apps/backend/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -25,7 +25,7 @@
     "format": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx prettier --config apps/nest/.prettierrc --write apps/nest/src/**/*.{ts,tsx,js,jsx,json,css,scss,md}"
+        "command": "npx prettier --config apps/backend/.prettierrc --write apps/backend/src/**/*.{ts,tsx,js,jsx,json,css,scss,md}"
       }
     }
   }
