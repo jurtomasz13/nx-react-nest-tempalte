@@ -38,7 +38,7 @@ To get started with this template, follow these steps:
 
 3. **Install dependencies**:
    ```bash
-   npm install
+   npm install --legacy-peer-deps
    ```
 
 4. **Run the development server**:
