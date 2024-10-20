@@ -1,1 +1,1 @@
-nx run-many --all --target=format --affected && npx lint-staged --concurrent false --relative
+npm run format && nx run-many --all --target=format --affected && npx lint-staged --concurrent false --relative

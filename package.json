@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky",
-    "postinstall": "npm run prepare"
+    "postinstall": "npm run prepare",
+    "format": "npx prettier --write ."
   },
   "nx": {},
   "private": true,
